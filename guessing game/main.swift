@@ -12,10 +12,15 @@ var playingGame = true
 
 
 print("Welcome to The guessing game!!!")
-print("You have 5 guesses to get the answer right")
+
+
 repeat {
+    print("How many guesses do you want.")
     var stillPlaying = "Y"
-    var guessesLeft = 5
+    var guessesLeft = Int(readLine()!)
+    while guessesLeft == nil {
+        print("plese chose a number")
+    }
     
     let randomNumber = Int(arc4random_uniform(101))
     
@@ -46,8 +51,8 @@ repeat {
             guessesLeft = 0
         }
         if userGuess != randomNumber{
-            guessesLeft -= 1
-            print("Guesses left \(guessesLeft)")
+            guessesLeft! -= 1
+            print("Guesses left \(String(describing: guessesLeft!))")
         }
         if guessesLeft == 0 && userGuess != randomNumber{
             print("You lose")
@@ -62,7 +67,8 @@ repeat {
             playingGame = false
         }
         
-    }while guessesLeft > 0
+        
+    }while guessesLeft! > 0
     
 }while playingGame == true
 
