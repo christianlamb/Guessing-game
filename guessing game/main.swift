@@ -20,6 +20,7 @@ repeat {
     var guessesLeft = Int(readLine()!)
     while guessesLeft == nil {
         print("plese chose a number")
+       guessesLeft = Int(readLine()!)
     }
     
     let randomNumber = Int(arc4random_uniform(101))
@@ -36,10 +37,6 @@ repeat {
             print("Please guess a number between 0 - 100.")
             userGuess = Int(readLine()!)
         }
-        if guessesLeft == 0 {
-            print(" game over ")
-        }
-        
         if userGuess! > randomNumber && userGuess != randomNumber {
             print("The Number is lower.")
         }
